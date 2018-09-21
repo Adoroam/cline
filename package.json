@@ -1,0 +1,12 @@
+{
+  "name": "cline",
+  "version": "1.0.0",
+  "description": "starter for node cli",
+  "main": "index.js",
+  "keywords": ["cli", "boilerplate"],
+  "author": "Ado",
+  "license": "MIT",
+  "bin": {
+    "aliasName": "./cli.js"
+  }
+}
