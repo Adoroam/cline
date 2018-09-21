@@ -9,6 +9,8 @@
   - to undo the link `sudo npm unlink`
 
 # From cline 
-- clone cline `git clone urlHere`
-- rename alias in package.json in bin object
+- clone the repo 
+  - `git clone git@github.com:Adoroam/cline.git` 
+  - `git clone https://github.com/Adoroam/cline.git`
+- rename bin object's alias in package.json
 - run `npm link` as administrator
