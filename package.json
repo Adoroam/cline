@@ -7,6 +7,6 @@
   "author": "Ado",
   "license": "MIT",
   "bin": {
-    "aliasName": "./cli.js"
+    "cline": "./cli.js"
   }
 }
