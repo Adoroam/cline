@@ -14,7 +14,7 @@ function lineHandler(text) {
   inputs
     .filter(({ command }) => command.test(text))
     .forEach(({ action }) => action(text))
-  term.prompt()
+  // term.prompt()
 }
 
 // // SIGINT EVENT (CTRL + C)
@@ -27,4 +27,11 @@ function lineHandler(text) {
 //     : term.prompt())
 // }
 
-term.prompt()
+function startup() {
+  let [x, y, ...args] = process.argv
+  args.length
+    ? args.forEach(arg => lineHandler(arg))
+    : term.prompt()
+}
+
+startup()
