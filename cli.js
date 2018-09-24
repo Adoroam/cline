@@ -13,25 +13,17 @@ term.on('line', lineHandler)
 function lineHandler(text) {
   inputs
     .filter(({ command }) => command.test(text))
-    .forEach(({ action }) => action(text))
-  // term.prompt()
+    .forEach(({ action }) => {
+      action(text)
+    })
+  process.emit('prompt')
 }
-
-// // SIGINT EVENT (CTRL + C)
-// term.on('SIGINT', sigintHandler)
-// // SIGINT HANDLER
-// function sigintHandler() {
-//   term.resume()
-//   term.question('exit?\n', answer => (answer.startsWith('y'))
-//     ? process.exit(0)
-//     : term.prompt())
-// }
 
 function startup() {
   let [x, y, ...args] = process.argv
   args.length
-    ? args.forEach(arg => lineHandler(arg))
-    : term.prompt()
+    ? lineHandler(args.join(' '))
+    : process.emit('prompt')
 }
 
 startup()

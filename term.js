@@ -1,5 +1,5 @@
 // READ/WRITE FROM TERMINAL
-const { createInterface } = require('readline')
+const { createInterface, cursorTo } = require('readline')
 
 // COLORS
 const { cyan, reset } = require('./colors')
@@ -29,5 +29,18 @@ const term = createInterface({
   completer: tab_completer,
   prompt: `${cyan}þ${reset} `
 })
+
+// // SIGINT EVENT (CTRL + C)
+// term.on('SIGINT', sigintHandler)
+// // SIGINT HANDLER
+// function sigintHandler() {
+//   term.resume()
+//   term.question('exit?\n', answer => (answer.startsWith('y'))
+//     ? process.exit(0)
+//     : term.prompt())
+// }
+
+process.on('clear', () => cursorTo(process.stdout, 0))
+process.on('prompt', () => term.prompt(false))
 
 module.exports = { term }
